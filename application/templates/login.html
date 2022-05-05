@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+   
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h3></h3>
+        <form name="login" action="" method="post">
+        <fieldset class="form-group">
+            <legend>{{ title }}</legend>
+            {{ form.hidden_tag() }}
+
+            <P>
+                {{ form.email.label }}<br>
+                {{ form.email(size=35) }}
+                {% for error in form.email.errors %}
+                    <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </P>
+            <P>
+                {{ form.password.label }}<br>
+                {{ form.password(size=15) }}
+                {% for error in form.password.errors %}
+                    <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </P>
+            <P>
+                {{ form.submit() }}<br>
+            </P>
+        </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
